@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>Z:\Programing projects\ChessSFML\x64\Debug\ChessSFML.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>Z:\Programing projects\ChessSFML\ChessSFML\Queen.h</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>Z:\Programing projects\ChessSFML\ChessSFML\Pawn.h</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

@@ -1,6 +1,9 @@
 #pragma once
+
+#include "Global.h"
+
 #include "Board.h"
-#include "Download.h"
+
 using namespace sf;
 
 class Pawn;
@@ -18,17 +21,6 @@ Board::~Board() {
 	DeleteBoard();
 }
 
-void Board::DeleteBoard() {
-	if (rect != nullptr) {
-		for (int row = 0; row < Row; row++)
-			if (rect[row] != nullptr)
-			{
-				delete[] rect[row];
-				rect[row] = nullptr;
-			}
-	}
-}
-
 void Board::CreateBoard() {
 	if (rect != nullptr)
 		DeleteBoard();
@@ -40,10 +32,10 @@ void Board::CreateBoard() {
 	}
 }
 
-
 void Board::SetupBoard() {
 	if (rect == nullptr)
 		CreateBoard();
+
 	for (int row = 0; row < Row; row++)
 		for (int col = 0; col < Column; col++)
 		{
@@ -58,14 +50,28 @@ void Board::SetupBoard() {
 				rect[row][col].setFillColor(clr[1]);
 			}
 		}
+}
 
-
+void Board::DeleteBoard() {
+	if (rect != nullptr) {
+		for (int row = 0; row < Row; row++)
+			if (rect[row] != nullptr)
+			{
+				delete[] rect[row];
+				rect[row] = nullptr;
+			}
+	}
 }
 
 RectangleShape Board::GetRectangle(int row, int col)
 {
 	if(rect != nullptr)
 		return rect[row][col];
+}
+
+bool Board::GetTurn()
+{
+	return this->Turn;
 }
 
 void Board::EndOfTurn()
@@ -90,9 +96,3 @@ void Board::EndOfTurn()
 		std::cout << "\tBLACK TURN ENDS";
 	}
 }
-
-bool Board::GetTurn()
-{
-	return this->Turn;
-}	
-

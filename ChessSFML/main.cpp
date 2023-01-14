@@ -1,14 +1,13 @@
 #include <SFML/Graphics.hpp>
-#include "Board.h"
-#include "Download.h"
-#include "Piece.h"
-#include "Queen.h"
-#include "Rook.h"
-#include "ButtonOps.h"
 #include <iostream>
 #include <vector>
 #include <chrono>
 #include <thread>
+
+#include "Global.h"
+#include "Board.h"
+#include "Piece.h"
+#include "ButtonOps.h"
 
 using namespace sf;
 using namespace std;
@@ -16,15 +15,17 @@ using namespace std;
 
 int Pawn::ep_col = -1;
 int Pawn::ep_row = -1;
+
 bool Pawn::white_en_passant = false;
 bool Pawn::black_en_passant = false;
 
-bool King::w_check = false;
-bool King::b_check = false;
 int King::wk_row = -1;
 int King::wk_col = -1;
 int King::bk_row = -1;
 int King::bk_col = -1;
+
+bool King::w_check = false;
+bool King::b_check = false;
 
 int main()
 {
@@ -66,5 +67,3 @@ int main()
 	}
 
 }
-
-

@@ -1,2 +1,13 @@
-﻿  Download.cpp
+﻿  Bishop.cpp
+  Board.cpp
+  Global.cpp
+  King.cpp
+  Knight.cpp
+  Main.cpp
+  Pawn.cpp
+  Piece.cpp
+  Queen.cpp
+  Rook.cpp
+  Создание кода...
+Z:\Programing projects\ChessSFML\ChessSFML\Board.cpp(70): warning C4715: Board::GetRectangle: значение возвращается не при всех путях выполнения
   ChessSFML.vcxproj -> Z:\Programing projects\ChessSFML\x64\Debug\ChessSFML.exe

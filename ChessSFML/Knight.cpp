@@ -1,6 +1,47 @@
 #pragma once
-#include "Knight.h"
+
 #include <iostream>
+
+#include "Knight.h"
+
+Knight::Knight(int row, int col, bool is_white)
+{
+	this->row = row;
+	this->col = col;
+	this->is_white = is_white;
+	this->move_ability = true;
+}
+
+bool Knight::Try(int row, int col)
+{
+	int t_row = this->row;
+	int t_col = this->col;
+	bool success = false;
+	int i = 0;
+
+	for (i; i < global::pieces.size(); i++)
+		if (((global::pieces[i]->IsWhite() != this->IsWhite()) && (global::pieces[i]->GetRow()) == row) && (global::pieces[i]->GetColumn() == col))
+		{
+			global::pieces[i]->SetMoveAbility(false);
+			success = true;
+			break;
+		}
+
+	this->Move(row, col);
+
+	if (King::Check(this->is_white, global::pieces))
+	{
+		this->Move(t_row, t_col);
+		return false;
+	}
+
+	if (success)
+		global::pieces[i]->SetMoveAbility(true);
+
+	this->Move(t_row, t_col);
+
+	return true;
+}
 
 bool Knight::IsAbleToMove(int row, int col)
 {
@@ -9,7 +50,7 @@ bool Knight::IsAbleToMove(int row, int col)
 
 	for (int i = 1; i < 3; i++) 
 	{
-		if ((row == this->Row + i && (col == this->Column + (3 - i) || col == this->Column - (3 - i))) || (row == this->Row - i && (col == this->Column + (3 - i) || col == this->Column - (3 - i))))
+		if ((row == this->row + i && (col == this->col + (3 - i) || col == this->col - (3 - i))) || (row == this->row - i && (col == this->col + (3 - i) || col == this->col - (3 - i))))
 		{
 			if (!this->Try(row, col))
 				return false;
@@ -21,76 +62,31 @@ bool Knight::IsAbleToMove(int row, int col)
 
 }
 
+void Knight::Move(int row, int col)
+{
+	this->row = row;
+	this->col = col;
+}
+
 string Knight::GetType()
 {
 	return "Knight";
 }
 
-Sprite Knight::GetSprite(Board &board)
+Sprite Knight::GetSprite(Board& board)
 {
-	if (this->isWhite == true) 
+	if (this->is_white == true)
 	{
 		this->t_white.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\KnightWhite.png");
 		this->sprite.setTexture(t_white);
 	}
-	else 
+	else
 	{
 		this->t_black.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\KnightBlack.png");
 		this->sprite.setTexture(t_black);
 	}
 
-	this->sprite.setPosition(Vector2f(float(this->Row) * board.GetHeight() + 20, float(this->Column) * board.GetWidth() + 20));
+	this->sprite.setPosition(Vector2f(float(this->row) * board.GetHeight() + 20, float(this->col) * board.GetWidth() + 20));
 
 	return this->sprite;
-}
-
-int Knight::GetRow()
-{
-	return this->Row;
-}
-
-int Knight::GetColumn()
-{
-	return this->Column;
-}
-
-bool Knight::IsWhite()
-{
-	return this->isWhite;
-}
-
-void Knight::Move(int row, int col)
-{
-	this->Row = row;
-	this->Column = col;
-}
-
-bool Knight::Try(int row, int col)
-{
-	int t_row = this->Row;
-	int t_col = this->Column;
-	bool succes = false;
-	int i = 0;
-	for (i; i < global::pieces.size(); i++)
-		if (((global::pieces[i]->IsWhite() != this->IsWhite()) && (global::pieces[i]->GetRow()) == row) && (global::pieces[i]->GetColumn() == col))
-		{
-			global::pieces[i]->SetMoveAbility(false);
-			succes = true;
-			break;
-		}
-
-	this->Move(row, col);
-
-	if (King::Check(this->isWhite, global::pieces))
-	{
-		this->Move(t_row, t_col);
-		return false;
-	}
-
-	if (succes)
-		global::pieces[i]->SetMoveAbility(true);
-
-	this->Move(t_row, t_col);
-
-	return true;
 }

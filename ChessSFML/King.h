@@ -1,40 +1,25 @@
 #pragma once
+
+#include "Global.h"
 #include "Piece.h"
-#include "Download.h"
+
 class King :
     public Piece
 {
 public:
-    King(int row, int col, bool isWhite)
-    {
-        this->Row = row;
-        this->Column = col;
-        this->isWhite = isWhite;
-        if (isWhite)
-        {
-            King::wk_row = row;
-            King::wk_col = col;
-        }
-        else
-        {
-            King::bk_row = row;
-            King::bk_col = col;
-        }
-        this->move_ability = true;
-    }
+    King(int row, int col, bool isWhite);
 
-public:
     bool IsAbleToMove(int row, int col) override;
 
     Sprite GetSprite(Board &board) override;
 
     void Move(int row, int col) override;
 
-    bool IsWhite() override;
+    //bool IsWhite() override;
 
-    int GetRow() override;
+    //int GetRow() override;
 
-    int GetColumn() override;
+    //int GetColumn() override;
 
     string GetType() override;
 

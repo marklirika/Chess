@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Piece.h"
 #include <vector>
 
+#include "Piece.h"
 
 class Piece;
 class King;
@@ -32,8 +32,6 @@ public:
 	void EndOfTurn();
 
 	bool GetTurn();
-	
-	void Castling(King* king, std::vector<std::shared_ptr<Piece>>& pieces, int row, int col);
 
 private:
 	int Row, Column;

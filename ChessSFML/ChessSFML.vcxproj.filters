@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Piece.cpp">
@@ -39,7 +39,7 @@
     <ClCompile Include="Bishop.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Download.cpp">
+    <ClCompile Include="Global.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="King.cpp">
@@ -71,7 +71,7 @@
     <ClInclude Include="Bishop.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Download.h">
+    <ClInclude Include="Global.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="King.h">

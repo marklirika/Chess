@@ -1,23 +1,27 @@
 #pragma once
+#define DEBUG
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
 #include "Board.h"
 #include "Piece.h"
-#include <iostream>
 
 using namespace sf;
 using namespace std;
 
 void LeftButtonClick(RenderWindow& window, Vector2i& MousePosition, Board& board, vector<shared_ptr<Piece>>& pieces, shared_ptr<Piece>& chosen)
 {
+	// Caclucate coordinates of a click
 	MousePosition = Mouse::getPosition(window);
-	// Считаем клетку на которую произвелся клик
 	int row = MousePosition.x / board.GetWidth();
 	int col = MousePosition.y / board.GetHeight();
+
+#ifdef DEBUG
 	cout << "mouse pos x : " << row;
 	cout << "  mouse pos y : " << col << endl;
-
-	// Если координаты клика соответствуют координатам фигуры из масива выбираем эту фигуру
+#endif
+	// Chosing a piece with an appropriate coordinates
 	int index = -1;
 	for (int i = 0; i < pieces.size(); i++)
 	{
@@ -26,60 +30,72 @@ void LeftButtonClick(RenderWindow& window, Vector2i& MousePosition, Board& board
 	}
 	if (chosen == NULL)
 	{
-		// Если клетка пустая и при этом никакая фигура не выбрана то ничего не делаем
+		// if square that was clicked is empty and piece isn't selected, do nothing
 		if (index == -1)
-			cout << "Index : " << index << "return accomplished" << endl;
+#ifdef DEBUG
+			cout << "Squere is empty and piece is not chosen yet, index : " << index << "\nOperation accomplished\n" << endl;
+#endif
 		else
 		{
-			// Если фигура не выбрана,то меняем ей параметр выбраности и общий параметр тоже
+			// if square isn't empty select it's piece and save it
 			if (pieces[index]->IsWhite() == board.GetTurn())
 			chosen = pieces[index];
+#ifdef DEBUG
 			cout << "Chosen Piece : " << index << endl;
+#endif
 		}
 	}
 	else
 	{
 		cout << "Piece is Already Chosen " << endl << "Chosen row is : " << chosen->GetRow() << " Col is : " << chosen->GetColumn() << endl;
 		
-		// Проверяем пустая ли клетка через index.
+		// Check is square is free with index.
 
 		if (index != -1)
 		{
-			//если клетка не пустая, и та м стоит фигура,то проверяем одного ли они цвета.
+			//if square isn't free and there is a piece, compairing it's color to a color of a chosen one
 			if (pieces[index]->IsWhite() == chosen->IsWhite())
 			{
-				// Если их цвета одинаковый перевыбираем фигуру и выходим
-				cout << "Similar Color of Pieces" << chosen->GetColumn();
+				// if color is similar, reselect a piece and leave
 				chosen = pieces[index];
+#ifdef DEBUG
+				cout << "Similar Color of Pieces" << chosen->GetColumn();
 				cout << "Chosen Changed" << endl;
+#endif
 			}
 			else
-				// Если цвет не одинаковый,то проверяем может ли фигура перейти на клетку
+				// if color of compared pieces is not similar try checking an ability of a chosen piece to move to a square
 				if (chosen->IsAbleToMove(row, col) == true)
 				{
-					cout << "Color of Pieces is defferent." << endl;
-					//Если фигура можетт перейти она переходит,удаляя вражескую фигуру.
+					//if selected piece is able to move remove piece on coordinates of click and move selected piece to this square
 					auto it = pieces.begin();
 					advance(it, index);
 					chosen->Move(row, col);
 					pieces.erase(it);
-					cout << "Piece " << index << " Deleted";
-					cout << "Piece Moved to : " << chosen->GetRow() << " " << chosen->GetColumn();
 					chosen = nullptr;
+#ifdef DEBUG
+					cout << "Colors of Pieces are different." << endl;
+					cout << "Piece " << index << " Deleted";
+					cout << "Piece Moved to : " << chosen->GetRow() << " " << chosen->GetColumn() << endl<< endl;
+#endif
 					board.EndOfTurn();
 
 				}
 		}
 		else
-			//Если клетка пустая, проверяем может ли туда перейти фигура,если да,двигаем ее,есои нет ничего не делаем
+			//if square is free just checking for piece ability to move there, provided that it can, move it to square
 			if (chosen->IsAbleToMove(row, col) == true)
 			{
 				chosen->Move(row, col);
-				cout << "Piece Moved to : " << chosen->GetRow() << " " << chosen->GetColumn();
 				chosen = nullptr;
-				board.EndOfTurn();
+#ifdef DEBUG
+				cout << "Piece Moved to : " << chosen->GetRow() << " " << chosen->GetColumn();
 				cout << ", End Of Turn" << endl;
+#endif
+				board.EndOfTurn();
 			}
 	}
+#ifdef DEBUG
 	std::cout << "\t END OF OPERATIONS " << endl;
+#endif
 }

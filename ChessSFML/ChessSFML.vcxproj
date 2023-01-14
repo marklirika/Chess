@@ -128,21 +128,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Knight.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Rook.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Bishop.cpp" />
-    <ClCompile Include="Download.cpp" />
+    <ClCompile Include="Global.cpp" />
     <ClCompile Include="King.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ButtonOps.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Bishop.h" />
-    <ClInclude Include="Download.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="King.h" />
     <ClInclude Include="Queen.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

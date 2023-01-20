@@ -38,7 +38,7 @@ bool Bishop::IsBlocked(int row, int col)
 	return false;
 }
 
-bool Bishop::Try(int row, int col)
+bool Bishop::TryToMove(int row, int col)
 {
 	int t_row = this->row;
 	int t_col = this->col;
@@ -83,7 +83,7 @@ bool Bishop::IsAbleToMove(int row, int col)
 	if ((row + col == this->row + this->col) || (row - col == (this->row - this->col)))
 		if(!this->IsBlocked(row, col))
 		{
-			if (!this->Try(row, col))
+			if (!this->TryToMove(row, col))
 				return false;
 			return true;
 		}
@@ -99,12 +99,12 @@ Sprite Bishop::GetSprite(Board &board)
 {
 	if (this->is_white == true)
 	{
-		this->t_white.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\BishopWhite.png");
+		this->t_white.loadFromFile("Textures/BishopWhite.png");
 		this->sprite.setTexture(t_white);
 	}
 	else
 	{
-		this->t_black.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\BishopBlack.png");
+		this->t_black.loadFromFile("Textures/BishopBlack.png");
 		this->sprite.setTexture(t_black);
 	}
 

@@ -100,12 +100,12 @@ Sprite King::GetSprite(Board& board)
 {
 	if (this->is_white == true)
 	{
-		this->t_white.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\KingWhite.png");
+		this->t_white.loadFromFile("Textures/KingWhite.png");
 		this->sprite.setTexture(t_white);
 	}
 	else
 	{
-		this->t_black.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\KingBlack.png");
+		this->t_black.loadFromFile("Textures/KingBlack.png");
 		this->sprite.setTexture(t_black);
 	}
 
@@ -154,7 +154,7 @@ bool King::SetBlackCheck(bool condition)
 	return King::b_check = condition;
 }
 
-bool King::Try(int row, int col)
+bool King::TryToMove(int row, int col)
 {
 	return true;
 }

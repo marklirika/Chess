@@ -11,6 +11,8 @@
 using namespace sf;
 using namespace std;
 
+
+
 namespace global {
 	extern vector<shared_ptr<Piece>> pieces;
 

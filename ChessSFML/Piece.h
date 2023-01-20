@@ -13,7 +13,7 @@ class Board;
 class Piece
 {
 public:
-	virtual bool Try(int row, int col) = 0;
+	virtual bool TryToMove(int row, int col) = 0;
 
 	virtual bool IsAbleToMove(int row, int col) = 0;
 		

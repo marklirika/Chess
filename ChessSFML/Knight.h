@@ -9,7 +9,7 @@ class Knight:
 public:
     Knight(int row, int col, bool is_white);
 
-    bool Try(int row, int col) override;
+    bool TryToMove(int row, int col) override;
 
     bool IsAbleToMove(int row, int col) override;
 

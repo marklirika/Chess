@@ -11,7 +11,7 @@ public:
 
     bool IsBlocked(int row, int col);
 
-    bool Try(int row, int col) override;
+    bool TryToMove(int row, int col) override;
 
     void Move(int row, int col) override;
 

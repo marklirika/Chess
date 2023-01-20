@@ -36,7 +36,7 @@ bool Rook::IsBlocked(int row, int col)
 	return false;
 }
 
-bool Rook::Try(int row, int col)
+bool Rook::TryToMove(int row, int col)
 {
 	int t_row = this->row;
 	int t_col = this->col;
@@ -75,7 +75,7 @@ bool Rook::IsAbleToMove(int row, int col)
 	if (!(row != this->row && col != this->col))
 		if (!IsBlocked(row, col))
 		{
-			if (!this->Try(row, col))
+			if (!this->TryToMove(row, col))
 				return false;
 			return true;
 		}
@@ -100,12 +100,12 @@ Sprite Rook::GetSprite(Board& board)
 {
 	if (this->is_white == true)
 	{
-		this->t_white.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\RookWhite.png");
+		this->t_white.loadFromFile("Textures/RookWhite.png");
 		this->sprite.setTexture(t_white);
 	}
 	else
 	{
-		this->t_black.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\RookBlack.png");
+		this->t_black.loadFromFile("Textures/RookBlack.png");
 		this->sprite.setTexture(t_black);
 	}
 

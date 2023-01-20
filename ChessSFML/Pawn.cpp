@@ -10,7 +10,7 @@ Pawn::Pawn(int row, int col, bool isWhite)
     this->move_ability = true;
 }
 
-bool Pawn::Try(int row, int col)
+bool Pawn::TryToMove(int row, int col)
 {
     int t_row = this->row;
     int t_col = this->col;
@@ -92,7 +92,7 @@ bool Pawn::IsAbleToMove(int row, int col)
 
     if(temp_bool == true)
     {
-			if (!this->Try(row, col))
+			if (!this->TryToMove(row, col))
 				return false;
 			return true;
 		}
@@ -147,12 +147,12 @@ Sprite Pawn::GetSprite(Board& board)
 {
     if (this->is_white == true)
     {
-        this->t_white.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\PawnWhite.png");
+        this->t_white.loadFromFile("Textures/PawnWhite.png");
         this->sprite.setTexture(t_white);
     }
     else
     {
-        this->t_black.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\PawnBlack.png");
+        this->t_black.loadFromFile("Textures/PawnBlack.png");
         this->sprite.setTexture(t_black);
     }
 

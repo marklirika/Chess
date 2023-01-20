@@ -25,7 +25,7 @@ public:
 
     static bool Check(bool turn, vector<shared_ptr<Piece>> pieces);
 
-    bool Try(int row, int col);
+    bool TryToMove(int row, int col);
 
     static bool CheckMate();
 

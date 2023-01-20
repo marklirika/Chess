@@ -44,9 +44,7 @@ int main()
 			if (event.type == Event::Closed)
 				window.close(); 
 			if (event.type == Event::MouseButtonPressed)
-			{
 				LeftButtonClick(window, MousePosition, board, global::pieces, global::chosen);
-			}
 		}
 		window.clear(Color(0, 0, 0));
 

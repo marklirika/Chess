@@ -2,12 +2,26 @@
   Board.cpp
   Global.cpp
   King.cpp
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(21,11): error C2027: использование неопределенного типа "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Board.h(8): message : см. объявление "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(22,11): error C2027: использование неопределенного типа "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Board.h(8): message : см. объявление "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(23,11): error C2027: использование неопределенного типа "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Board.h(8): message : см. объявление "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(24,11): error C2027: использование неопределенного типа "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Board.h(8): message : см. объявление "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(26,12): error C2027: использование неопределенного типа "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Board.h(8): message : см. объявление "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(27,12): error C2027: использование неопределенного типа "King"
+Z:\Programing projects\ChessSFML\ChessSFML\Board.h(8): message : см. объявление "King"
   Knight.cpp
   Main.cpp
   Pawn.cpp
-  Piece.cpp
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(15,5): error C2653: Pawn: не является именем класса или пространства имен
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(16,5): error C2653: Pawn: не является именем класса или пространства имен
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(18,6): error C2653: Pawn: не является именем класса или пространства имен
+Z:\Programing projects\ChessSFML\ChessSFML\Global.h(19,6): error C2653: Pawn: не является именем класса или пространства имен
   Queen.cpp
   Rook.cpp
   Создание кода...
 Z:\Programing projects\ChessSFML\ChessSFML\Board.cpp(70): warning C4715: Board::GetRectangle: значение возвращается не при всех путях выполнения
-  ChessSFML.vcxproj -> Z:\Programing projects\ChessSFML\x64\Debug\ChessSFML.exe

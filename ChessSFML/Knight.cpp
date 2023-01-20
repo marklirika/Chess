@@ -12,7 +12,7 @@ Knight::Knight(int row, int col, bool is_white)
 	this->move_ability = true;
 }
 
-bool Knight::Try(int row, int col)
+bool Knight::TryToMove(int row, int col)
 {
 	int t_row = this->row;
 	int t_col = this->col;
@@ -52,7 +52,7 @@ bool Knight::IsAbleToMove(int row, int col)
 	{
 		if ((row == this->row + i && (col == this->col + (3 - i) || col == this->col - (3 - i))) || (row == this->row - i && (col == this->col + (3 - i) || col == this->col - (3 - i))))
 		{
-			if (!this->Try(row, col))
+			if (!this->TryToMove(row, col))
 				return false;
 			return true;
 		}
@@ -77,12 +77,12 @@ Sprite Knight::GetSprite(Board& board)
 {
 	if (this->is_white == true)
 	{
-		this->t_white.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\KnightWhite.png");
+		this->t_white.loadFromFile("Textures/KnightWhite.png");
 		this->sprite.setTexture(t_white);
 	}
 	else
 	{
-		this->t_black.loadFromFile("Z:\\Programing projects\\ChessSFML\\Textures\\KnightBlack.png");
+		this->t_black.loadFromFile("Textures/KnightBlack.png");
 		this->sprite.setTexture(t_black);
 	}
 
